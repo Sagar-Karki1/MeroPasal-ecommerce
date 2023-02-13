@@ -4,6 +4,7 @@ import PageNavigation from "../components/PageNavigation";
 import ProductImage from "../components/ProductImage";
 import { useProductContext } from "../context/ProductContext";
 import FormatPrice from "../Helpers/FormatPrice";
+import AddToCart from "../components/AddToCart";
 
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { BiShieldQuarter, BiCreditCard } from "react-icons/bi";
@@ -105,6 +106,9 @@ const SingleProduct = () => {
                 );
               })}
             </div>
+            <hr className="mb-8 border-2" />
+            {stock > 0 && <AddToCart product={singleProduct} />}
+
             <NavLink
               to="/cart"
               className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-2 rounded-md text-white"
