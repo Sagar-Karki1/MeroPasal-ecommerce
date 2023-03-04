@@ -7,7 +7,7 @@ const Sort = () => {
     useFilterContext();
   return (
     <>
-      <section className="border-2 border-red-600 px-3 py-4 flex justify-between">
+      <section className=" px-3 py-4 flex justify-between">
         <div className="grid-buttons flex gap-4 ">
           <button
             className={

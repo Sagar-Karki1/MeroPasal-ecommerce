@@ -6,8 +6,8 @@ import FilterSection from "../components/FilterSection";
 const Products = () => {
   return (
     <>
-      <div className="flex w-full max-w-[1200px] m-auto">
-        <div className="products-filter">
+      <div className="flex w-full max-w-[1200px] m-auto gap-4">
+        <div className="products-filter py-4">
           <FilterSection />
         </div>
         <div className="products-items">
