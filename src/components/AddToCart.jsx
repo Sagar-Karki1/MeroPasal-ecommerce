@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CartAmountToggle from "./CartAmountToggle";
+import { FaCheck } from "react-icons/fa";
 
 const AddToCart = ({ product }) => {
   const { id, colors, stock } = product;
@@ -19,10 +20,14 @@ const AddToCart = ({ product }) => {
           {colors.map((curColor, index) => {
             return (
               <button
-                className="w-[1rem] h-[1rem] rounded-sm mx-1"
+                className="w-[1.5rem] h-[1.5rem] rounded-sm mx-1"
                 key={index}
                 style={{ backgroundColor: curColor }}
-              ></button>
+              >
+                {colors === curColor ? (
+                  <FaCheck className="text-white text-xl" />
+                ) : null}
+              </button>
             );
           })}
         </p>
