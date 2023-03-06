@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import CartAmountToggle from "./CartAmountToggle";
 import { FaCheck } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
 
 const AddToCart = ({ product }) => {
+  const { addToCart } = useCartContext();
   const { id, colors, stock } = product;
   const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
@@ -38,6 +41,13 @@ const AddToCart = ({ product }) => {
         setIncrease={setIncrease}
         setDecrease={setDecrease}
       />
+      <NavLink
+        to="/cart"
+        className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-2 rounded-md text-white"
+        onClick={() => addToCart(id, color, amount, product)}
+      >
+        Add to cart
+      </NavLink>
     </>
   );
 };

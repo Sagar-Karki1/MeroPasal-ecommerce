@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PageNavigation from "../components/PageNavigation";
 import ProductImage from "../components/ProductImage";
 import { useProductContext } from "../context/ProductContext";
@@ -66,7 +66,7 @@ const SingleProduct = () => {
         <div className=" h-[54rem] w-full max-w-[1300px] m-auto flex pt-6">
           <div className="image w-1/2">
             {/* Product Images */}
-            <ProductImage imgs={image} />
+            <ProductImage imgs098={image} />
           </div>
           <div className="product-data w-1/2 pl-8">
             <h2 className="font-semibold capitalize text-xl text-gray-600">
@@ -108,13 +108,6 @@ const SingleProduct = () => {
             </div>
             <hr className="mb-8 border-2" />
             {stock > 0 && <AddToCart product={singleProduct} />}
-
-            <NavLink
-              to="/cart"
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-2 rounded-md text-white"
-            >
-              Add to cart
-            </NavLink>
           </div>
         </div>
       </section>

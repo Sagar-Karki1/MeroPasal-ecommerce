@@ -68,7 +68,6 @@ const FilterReducer = (state, action) => {
     case "FILTER_PRODUCTS":
       let { all_products } = state;
       let tempFilterProduct = [...all_products];
-      console.log(state);
       const { text, category, company, colors } = state.filters;
       if (text) {
         tempFilterProduct = tempFilterProduct.filter((curElem) => {

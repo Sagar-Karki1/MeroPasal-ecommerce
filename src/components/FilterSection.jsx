@@ -26,7 +26,6 @@ const FilterSection = () => {
   const categoryOnlyData = getUniqueData(all_products, "category");
   const companyOnlyData = getUniqueData(all_products, "company");
   const colorsOnlyData = getUniqueData(all_products, "colors");
-  console.log(colorsOnlyData);
   return (
     <div className="flex flex-col gap-6">
       <div className="filter-search">
