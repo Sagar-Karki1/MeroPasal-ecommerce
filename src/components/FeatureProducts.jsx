@@ -9,12 +9,16 @@ const FeatureProducts = () => {
   }
   return (
     <>
-      <section>
-        <h3>Feature Prodcuts</h3>
-        <div className="products-container grid grid-cols-3 gap-4">
-          {featureProducts.map((products) => {
-            return <Product key={products.id} {...products} />;
-          })}
+      <section className="w-full bg-slate-100">
+        <div className="w-full max-w-[1300px] m-auto bg-white shadow-lg px-4">
+          <h3 className="text-4xl font-semibold text-teal-600 py-3">
+            Feature Prodcuts
+          </h3>
+          <div className="products-container grid grid-cols-3 gap-8">
+            {featureProducts.map((products) => {
+              return <Product key={products.id} {...products} />;
+            })}
+          </div>
         </div>
       </section>
     </>

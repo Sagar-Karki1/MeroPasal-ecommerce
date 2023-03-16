@@ -7,7 +7,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
 import Header from "./components/Header";
-import Login from "./pages/Login";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/singleproduct/:id" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

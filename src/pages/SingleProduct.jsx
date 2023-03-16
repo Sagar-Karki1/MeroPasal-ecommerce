@@ -66,7 +66,7 @@ const SingleProduct = () => {
         <div className=" h-[54rem] w-full max-w-[1300px] m-auto flex pt-6">
           <div className="image w-1/2">
             {/* Product Images */}
-            <ProductImage imgs098={image} />
+            <ProductImage imgs={image} />
           </div>
           <div className="product-data w-1/2 pl-8">
             <h2 className="font-semibold capitalize text-xl text-gray-600">

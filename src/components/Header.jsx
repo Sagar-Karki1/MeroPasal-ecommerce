@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaCross, FaShoppingCart, FaTimes } from "react-icons/fa";
+import { useCartContext } from "../context/CartContext";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
+  const { total_item } = useCartContext();
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   const [nav, setNav] = useState(false);
   const links = [
     {
@@ -29,38 +33,47 @@ const Header = () => {
   return (
     <>
       <header className="w-full h-[8vh] bg-slate-800 relative">
-        <div className="nav-wrapper h-full max-w-[1200px] w-full m-auto flex justify-between items-center">
+        <div className="nav-wrapper h-full max-w-[1300px] w-full m-auto flex justify-between items-center">
           <NavLink to="/">
-            <h3 className="text-neutral-100 font-bold text-2xl">MeroPasal</h3>
+            <h3 className="text-neutral-100 font-bold text-3xl">MeroPasal</h3>
           </NavLink>
           {/* Navbar for bigger screen */}
+          <div className="navlinks">
+            <ul className="flex text-slate-200 gap-16">
+              {links.map(({ id, link, url }) => (
+                <li key={id} className="">
+                  <NavLink
+                    to={url}
+                    className="hover:border-b-2 border-b-white capitalize text-lg font-medium opacity-80 hover:opacity-100"
+                  >
+                    {link}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="nav-items hidden md:flex md:items-center md:gap-8">
-            <div className="navlinks">
-              <ul className="flex text-slate-200">
-                {links.map(({ id, link, url }) => (
-                  <li key={id} className="px-4 py-1 ">
-                    <NavLink
-                      to={url}
-                      className="hover:border-b-2 border-b-white capitalize text-sm"
-                    >
-                      {link}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
             <div className="login flex gap-6 items-center text-white">
-              <NavLink
-                to="/login"
-                className="px-4 py-0.5 text-sm bg-white text-gray-800 rounded font-semibold"
-              >
-                Log In
-              </NavLink>
+              {isAuthenticated ? (
+                <button
+                  onClick={() =>
+                    logout({
+                      logoutParams: { returnTo: window.location.origin },
+                    })
+                  }
+                >
+                  Log Out
+                </button>
+              ) : (
+                <button onClick={() => loginWithRedirect()}>Log In</button>
+              )}
+              {isAuthenticated && <h2>{user.name}</h2>}
+
               <div className="cart-log relative px-3 py-3">
                 <NavLink to="/cart">
                   <FaShoppingCart size={25} className="" />
                   <span className="cart-total absolute top-[15%] left-[60%] bg-gray-700 rounded-full px-[4px] font-semibold py-[0.5px] text-[10px]">
-                    5
+                    {total_item}
                   </span>
                 </NavLink>
               </div>
@@ -98,14 +111,21 @@ const Header = () => {
                 </ul>
               </div>
               <div className="login flex flex-col gap-2 items-center text-white">
-                <NavLink className="px-10 py-2 bg-white text-gray-800 rounded font-semibold text-xl">
-                  Login
-                </NavLink>
+                <button onClick={() => loginWithRedirect()}>Log In</button>
+                <button
+                  onClick={() =>
+                    logout({
+                      logoutParams: { returnTo: window.location.origin },
+                    })
+                  }
+                >
+                  Log Out
+                </button>
                 <div className="cart-log relative px-3 py-3">
                   <NavLink to="/cart">
                     <FaShoppingCart size={40} className="" />
                     <span className="cart-total absolute top-[15%] left-[60%] bg-gray-700 rounded-full px-1.5 font-semibold py-0.5 text-xs">
-                      5
+                      {total_item}
                     </span>
                   </NavLink>
                 </div>
