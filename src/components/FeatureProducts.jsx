@@ -9,12 +9,12 @@ const FeatureProducts = () => {
   }
   return (
     <>
-      <section className="w-full bg-slate-100">
-        <div className="w-full max-w-[1300px] m-auto bg-white shadow-lg px-4">
+      <section className="w-full border border-indigo-500 bg-slate-100">
+        <div className="w-full h-full max-w-[1300px] m-auto bg-white shadow-lg px-4">
           <h3 className="text-4xl font-semibold text-teal-600 py-3">
             Feature Prodcuts
           </h3>
-          <div className="products-container grid grid-cols-3 gap-8">
+          <div className="products-container grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-16">
             {featureProducts.map((products) => {
               return <Product key={products.id} {...products} />;
             })}

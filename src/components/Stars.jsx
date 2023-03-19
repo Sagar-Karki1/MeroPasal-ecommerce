@@ -7,21 +7,20 @@ const Stars = ({ stars }) => {
     return (
       <span key={index}>
         {stars >= index + 1 ? (
-          <BsStarFill color="orange" size={20} />
+          <BsStarFill />
         ) : stars >= number ? (
-          <BsStarHalf color="orange" size={20} />
+          <BsStarHalf />
         ) : (
-          <BsStar color="orange" size={20} />
+          <BsStar />
         )}
       </span>
     );
   });
   return (
     <div className=" flex">
-      <div>
-        <p className="text-md text-gray-500 font-medium mr-2">Ratings: </p>
+      <div className="flex gap-[1px] text-[10px] text-orange-600">
+        {ratingStar}
       </div>
-      <div className="flex gap-[1px]">{ratingStar}</div>
     </div>
   );
 };

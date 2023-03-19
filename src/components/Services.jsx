@@ -10,45 +10,47 @@ const Services = () => {
     {
       id: 1,
       serviceName: "Fast Shipping",
-      icons: <TbTruckDelivery color="blue" size={30} />,
+      icons: <TbTruckDelivery />,
     },
     {
       id: 2,
       serviceName: "24x7 Technical Support",
-      icons: <BiSupport color="blue" size={30} />,
+      icons: <BiSupport />,
     },
     {
       id: 3,
       serviceName: "Super Secure Payment",
-      icons: <RiSecurePaymentLine color="blue" size={30} />,
+      icons: <RiSecurePaymentLine />,
     },
     {
       id: 4,
       serviceName: "100% Money Back Gurantee",
-      icons: <GiReceiveMoney color="blue" size={30} />,
+      icons: <GiReceiveMoney />,
     },
   ];
   return (
     <>
-      <div className="w-full bg-slate-100">
-        <div className="w-full max-w-[1300px] h-[70vh] m-auto px-4 bg-white shadow-lg">
-          <h3 className="capitalize font-semibold text-4xl text-teal-600 ">
+      <div className="w-full bg-slate-100 border">
+        <div className="w-full max-w-[1300px] m-auto px-4 bg-white shadow-lg">
+          <h3 className="capitalize font-semibold text-2xl text-teal-600 ">
             our services
           </h3>
-          <div className="services-content md:flex justify-between">
-            <div className="services-img w-[45%] ">
+          <div className="services-content md:flex md:justify-between">
+            <div className="services-img md:w-[45%] ">
               <figure>
                 <img src="./images/Services.svg" alt="" className="w-full" />
               </figure>
             </div>
-            <div className="services-data w-[45%] h-1/2 grid grid-cols-2 gap-x-8 gap-y-4 mt-24">
+            <div className="services-data md:w-[45%] h-1/2 grid grid-cols-2 gap-x-8 gap-y-4 md:mt-24">
               {serviceList.map(({ id, serviceName, icons }) => (
                 <div
                   key={id}
-                  className="flex flex-col justify-center items-center rounded-md bg-white drop-shadow-lg h-[15vh]"
+                  className="flex flex-col text-center justify-center items-center rounded-md bg-white drop-shadow-lg h-[12vh]"
                 >
-                  <span className="opacity-70">{icons}</span>
-                  <p className="font-medium text-gray-500 text-lg">
+                  <span className="opacity-70 text-3xl text-indigo-800">
+                    {icons}
+                  </span>
+                  <p className="font-medium text-gray-500 text-xs">
                     {serviceName}
                   </p>
                 </div>

@@ -32,14 +32,14 @@ const Header = () => {
   ];
   return (
     <>
-      <header className="w-full h-[8vh] bg-slate-800 relative">
+      <header className="w-full h-[8vh] bg-slate-800 relative px-4">
         <div className="nav-wrapper h-full max-w-[1300px] w-full m-auto flex justify-between items-center">
           <NavLink to="/">
             <h3 className="text-neutral-100 font-bold text-3xl">MeroPasal</h3>
           </NavLink>
           {/* Navbar for bigger screen */}
-          <div className="navlinks">
-            <ul className="flex text-slate-200 gap-16">
+          <div className="navlinks hidden md:block">
+            <ul className="md:flex text-slate-200 gap-16">
               {links.map(({ id, link, url }) => (
                 <li key={id} className="">
                   <NavLink

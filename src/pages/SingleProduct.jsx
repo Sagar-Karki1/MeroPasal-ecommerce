@@ -42,7 +42,6 @@ const SingleProduct = () => {
   const {
     id: alias,
     name,
-    company,
     price,
     colors,
     image,
@@ -74,7 +73,7 @@ const SingleProduct = () => {
             </h2>
             <Stars stars={stars} />
             <p className="text-md text-gray-500 font-medium">
-              Customer reviews: <span className="ml-2">{reviews} reviews</span>{" "}
+              Customer reviews: <span className="ml-2">{reviews} reviews</span>
             </p>
             <p className="text-gray-500 text-md font-medium">
               Available: {stock > 0 ? "In Stock" : "Out of stock"}

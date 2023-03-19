@@ -83,26 +83,6 @@ const CartReducer = (state, action) => {
     };
   }
 
-  // if (action.type === "CART_ITEM_PRICE_TOTAL") {
-  //   let { total_item, total_price } = state.cart.reduce(
-  //     (accum, curElem) => {
-  //       let { price, amount } = curElem;
-  //       accum.total_item = accum + amount;
-  //       accum.total_price = accum + price * amount;
-  //       return accum;
-  //     },
-  //     {
-  //       total_item: 0,
-  //       total_price: 0,
-  //     }
-  //   );
-  //   return {
-  //     ...state,
-  //     total_item,
-  //     total_price,
-  //   };
-  // }
-
   //to set increment and decrement
   if (action.type === "SET_DECREMENT") {
     let updatedProduct = state.cart.map((curElem) => {
